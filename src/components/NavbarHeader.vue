@@ -8,7 +8,7 @@
     </div>
     <div
       class="space-y-4 overflow-hidden transition-all duration-300"
-      :class="menuToggle ? 'h-56' : 'h-0'"
+      :class="menuToggle ? 'h-96' : 'h-0'"
     >
       <div class="mt-6">
         <NavbarLinks
@@ -20,10 +20,11 @@
           :text="link.text"
         />
       </div>
-      <hr class="h-1 w-full bg-gray-500" />
+      <hr class="w-full bg-gray-500" />
       <div class="text-xs text-gray-500 space-y-4 text-center">
         <p>
-          © 2023 <a class="hover:underline hover:text-gray-50" href="/">Mark Dennis Sanchez</a>. All Rights Reserved.
+          © 2023 <a class="hover:underline hover:text-gray-50" href="/">Mark Dennis Sanchez</a>. All
+          Rights Reserved.
         </p>
         <div class="space-x-2 divide-x-2">
           <a
@@ -56,6 +57,11 @@ const handleMenuToggle = () => {
 
 const navLinks = [
   {
+    text: 'Resume',
+    name: 'resume',
+    href: '/resume'
+  },
+  {
     text: 'Home',
     name: 'home',
     href: '/'
@@ -66,10 +72,20 @@ const navLinks = [
     href: '/about'
   },
   {
-    text: 'Resume',
-    name: 'resume',
-    href: '/resume'
+    text: 'Skills',
+    name: 'skills',
+    href: '/skills'
   },
+  {
+    text: 'Projects',
+    name: 'projects',
+    href: '/projects'
+  },
+  {
+    text: 'Contact',
+    name: 'contact',
+    href: '/contact'
+  }
 ]
 
 const socials = [
