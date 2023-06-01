@@ -1,10 +1,11 @@
 <template>
-  <nav class="flex flex-col fixed top-0 w-full px-6 py-4 backdrop-blur-md">
+  <nav class="flex flex-col fixed top-0 w-full px-6 py-4 z-10 shadow-md bg-gray-950">
     <div class="flex justify-between">
       <button @click="handleMenuToggle">
-        <BarsThreeIcon />
+        <XMarkIcon v-if="menuToggle" />
+        <BarsThreeIcon v-else />
       </button>
-      <div>Mark Dennis</div>
+      <p class="font-bold">Mark Dennis</p>
     </div>
     <div
       class="space-y-4 overflow-hidden transition-all duration-300"
@@ -17,7 +18,6 @@
           :key="index"
           :name="link.name"
           :href="link.href"
-          :text="link.text"
         />
       </div>
       <hr class="w-full bg-gray-500" />
@@ -26,7 +26,7 @@
           © 2023 <a class="hover:underline hover:text-gray-50" href="/">Mark Dennis Sanchez</a>. All
           Rights Reserved.
         </p>
-        <div class="space-x-2 divide-x-2">
+        <div class="space-x-2 divide-x">
           <a
             @click="handleMenuToggle"
             v-for="(link, index) in socials"
@@ -46,7 +46,7 @@
 
 <script setup lang="ts">
 import NavbarLinks from './NavbarLinks.vue'
-import BarsThreeIcon from './icons/BarsThreeIcon.vue'
+import { BarsThreeIcon, XMarkIcon } from './icons'
 import { ref } from 'vue'
 
 const menuToggle = ref(false)
@@ -57,34 +57,28 @@ const handleMenuToggle = () => {
 
 const navLinks = [
   {
-    text: 'Resume',
-    name: 'resume',
-    href: '/resume'
+    name: 'Home',
+    href: '#home'
   },
   {
-    text: 'Home',
-    name: 'home',
-    href: '/'
+    name: 'About',
+    href: '#about'
   },
   {
-    text: 'About',
-    name: 'about',
-    href: '/about'
+    name: 'Skills',
+    href: '#skills'
   },
   {
-    text: 'Skills',
-    name: 'skills',
-    href: '/skills'
+    name: 'Projects',
+    href: '#projects'
   },
   {
-    text: 'Projects',
-    name: 'projects',
-    href: '/projects'
+    name: 'Resume',
+    href: '#resume'
   },
   {
-    text: 'Contact',
-    name: 'contact',
-    href: '/contact'
+    name: 'Contact',
+    href: '#contact'
   }
 ]
 
